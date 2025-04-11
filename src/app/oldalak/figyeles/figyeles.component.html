@@ -1,0 +1,14 @@
+<main [ngClass]="aktualisTema">
+    @if (kVan) {
+        
+            <div id="korlatozoszulo">
+                <iframe [src]="kameraForras" frameborder="0" width="560" height="315"></iframe>
+            </div>
+    }
+
+    @else {
+        <app-hibaoldal></app-hibaoldal>
+    }
+</main>
+
+

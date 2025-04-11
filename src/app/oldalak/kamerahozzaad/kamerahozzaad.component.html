@@ -1,0 +1,20 @@
+<main [ngClass]="aktualisTema">
+  <h1>Kamera hozzáadása</h1>
+    <form (ngSubmit)="ujKameraLathataron()">
+        <mat-form-field appearance="outline">
+          <mat-label>Település</mat-label>
+          <input matInput type="text" [formControl]="telepules">
+          <mat-icon matSuffix>building</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Helyszín</mat-label>
+          <input matInput type="text" [formControl]="helyszin">
+          <mat-icon matSuffix>building</mat-icon>
+        </mat-form-field>
+        <br>
+        <button mat-flat-button type="submit">Lődd fel a kamerát, hadd lássuk!</button>
+        
+    </form>
+</main>
+

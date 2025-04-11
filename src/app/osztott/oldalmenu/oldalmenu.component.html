@@ -1,0 +1,31 @@
+<aside [ngClass]="aktualisSzin">
+    <h1>Leskelődő</h1>
+        <mat-nav-list>
+            <a mat-list-item routerLink="/kezdo" routerLinkActive="active-list-item" (click)="closeMenu()">
+              <mat-icon matListItemIcon>home</mat-icon>
+              <span matListItemTitle>Kezdőlap</span>
+            </a>
+            <a mat-list-item routerLink="/leskelodes" routerLinkActive="active-list-item" (click)="closeMenu()">
+              <mat-icon matListItemIcon>assignment</mat-icon>
+              <span matListItemTitle>Leskelődj!</span>
+            </a>
+            @if(bejelentkezve){
+              <a mat-list-item routerLink="/ujkamera" routerLinkActive="active-list-item" (click)="closeMenu()">
+                <mat-icon matListItemIcon>done_all</mat-icon>
+                <span matListItemTitle>Kamera hozzáadása</span>
+              </a>
+            }
+            @if(!bejelentkezve){
+              <a mat-list-item routerLink="/bej" routerLinkActive="active-list-item" (click)="closeMenu()">
+                <mat-icon matListItemIcon>person</mat-icon>
+                <span matListItemTitle>Bejelentkezés</span>
+              </a>  
+            }
+            @if(bejelentkezve){
+              <a mat-list-item routerLinkActive="active-list-item" (click)="kij()">
+                <mat-icon matListItemIcon>person</mat-icon>
+                <span matListItemTitle>Kijelentkezés</span>
+              </a>  
+            }
+        </mat-nav-list>
+</aside>

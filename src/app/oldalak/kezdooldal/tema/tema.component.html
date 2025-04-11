@@ -1,0 +1,7 @@
+<p>Színezés kiválasztása</p>
+<mat-radio-group [(ngModel)]="aktualisSzin" (change)="szinValtoztat(aktualisSzin)">
+    <mat-radio-button value="kek">Kék</mat-radio-button>
+    <mat-radio-button value="zold">Zöld</mat-radio-button>
+    <mat-radio-button value="piros">Piros</mat-radio-button>
+</mat-radio-group>
+<p>Világos téma <mat-slide-toggle [(ngModel)]="aktiv" (change)="temaValt(aktiv)"></mat-slide-toggle></p>

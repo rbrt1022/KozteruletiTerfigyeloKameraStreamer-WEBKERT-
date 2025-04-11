@@ -1,0 +1,87 @@
+$egyik-szin: #031A6B;
+$masik-szin: #3F4739;
+$harmadik-szin: #3581B8;
+$negyedik-szin: #FCB07E;
+$otodik-szin: #97df07;
+
+header{
+    background-color: $otodik-szin;
+}
+
+ul{
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+#szinezos{
+    width: 100%;
+    margin: 0;
+    display: flex;
+    //background-color: $harmadik-szin;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100%;
+    padding: auto;
+}
+
+mat-toolbar{
+    padding: 0;
+}
+
+#nemnav{
+    display: flex;
+}
+
+#cim{
+    padding: 15px;
+    color: white;
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    background-color: $egyik-szin;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    height: 110%;
+}
+
+a:hover{
+    background-color: $masik-szin;
+}
+
+mat-sidenav{
+    border-radius: 0;
+}
+
+.menu-toggle-button{
+    display: none;
+    top: 10px;
+}
+
+mat-icon{
+    //background-color: #3581B8;
+    top: 5px;
+    left: 5px;
+}
+
+nav{
+    padding: auto;
+}
+
+@media (max-width:819px) {
+    .menu-toggle-button{
+        display: block;
+    }
+
+    nav{
+        display: none;
+    }
+}

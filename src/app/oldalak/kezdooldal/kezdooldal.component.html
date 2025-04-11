@@ -1,0 +1,16 @@
+<main id="kezdo" [ngClass]="aktualisTema">
+    <h1>Közterületi kamera stream oldal</h1>
+    <p>
+        Ez az oldal azt a célt szolgálja, hogy megjeleníti azon közterületi kamerákat, amelyek élő közvetítést végeznek, ezzel 
+        az emberek elé bocsátva egy adott terület eseményeit és körülményeit.
+    </p>
+    <button mat-stroked-button (click)="oldaltmodosits()">Menj leskelődni!</button>
+
+    <h1>Oldal személyre szabása</h1>
+    <mat-tab-group>
+        <mat-tab label="Téma">
+            <app-tema (temaValtozas)="valtsTemat()"></app-tema>
+        </mat-tab>
+    </mat-tab-group>
+      
+</main>

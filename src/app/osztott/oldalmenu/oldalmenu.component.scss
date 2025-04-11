@@ -1,0 +1,30 @@
+$egyik-szin: #031A6B;
+$masik-szin: #3F4739;
+$harmadik-szin: #3581B8;
+$negyedik-szin: #FCB07E;
+/*$otodik-szin: #DEE2D6;*/
+$alap-betuszin: white;
+$sotet-betuszin: $masik-szin;
+
+h1{
+    color: $alap-betuszin;
+    text-align: center;
+    padding-top: 20px;
+}
+
+aside{
+    /*background-color: $egyik-szin;*/
+    min-height: 100%;
+}
+
+.mdc-list-item__primary-text{
+    color: $alap-betuszin;
+}
+
+
+
+
+
+
+
+

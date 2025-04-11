@@ -1,0 +1,40 @@
+<header [ngClass]="aktualisSzin">
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <app-oldalmenu [sidenav]="sidenav"></app-oldalmenu>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <div [ngClass]="aktualisSzin" id="szinezos">
+        <div id="nemnav">
+          <button 
+            mat-button 
+            (click)="onToggleSidenav(sidenav)"
+            class="menu-toggle-button">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <div id="cim">Leskelődő</div>
+        </div>
+          
+        <nav>
+          <ul>
+            <li><a routerLink="/kezdo">Kezdőoldal</a></li>
+            <li><a routerLink="/leskelodes">Leskelődj!</a></li>
+            @if(bejelentkezve){
+              <li><a routerLink="/ujkamera">Kamera hozzáadása</a></li>
+            }
+            @if(bejelentkezve){
+              <li><a (click)="kij()">Kijelentkezés</a></li>
+            }
+            @if(!bejelentkezve){
+              <li><a routerLink="/bej">Bejelentkezés</a></li>
+            }
+          </ul>
+        </nav>
+      </div>
+      </mat-toolbar>
+      <router-outlet />
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</header>

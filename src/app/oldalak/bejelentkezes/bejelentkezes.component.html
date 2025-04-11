@@ -1,0 +1,21 @@
+<main id="bej" [ngClass]="aktualisTema">
+    <form (ngSubmit)="bejelentkezes()">
+        <mat-form-field appearance="outline">
+          <mat-label>Felhasználónév</mat-label>
+          <input matInput type="text" [formControl]="felhasznalonev">
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Jelszó</mat-label>
+          <input matInput type="password" [formControl]="jelszo">
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+        <br>
+        <button mat-flat-button type="submit">Bejelentkezés</button>
+        
+        
+    </form><br>
+    <button mat-stroked-button (click)="regisztraljaCsorro()">Nincs még fiókod? Regisztrálj!</button>
+</main>
+

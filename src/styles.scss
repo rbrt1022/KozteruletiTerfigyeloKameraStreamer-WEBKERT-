@@ -1,0 +1,179 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+
+html {
+  .zold{
+    @include mat.theme((
+    color: (
+      primary: mat.$green-palette,
+      tertiary: mat.$green-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+  }
+
+  .kek{
+    @include mat.theme((
+    color: (
+      primary: mat.$blue-palette,
+      tertiary: mat.$green-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+  }
+
+  .piros{
+    @include mat.theme((
+    color: (
+      primary: mat.$red-palette,
+      tertiary: mat.$green-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+  }
+}
+
+
+
+
+$k1: #031A6B;
+$k2: #3581B8;
+$z1: #0f6b03;
+$z2: #40b835;
+$p1: #6b0603;
+$p2: #e41c15;
+
+
+/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $z2;}
+main{min-height: 100vh;text-align: center; padding-top: 20px;}
+
+.light{
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+
+
+.kek, .kek aside {
+  background-color: $k2;
+
+  .kek a.nav
+  {
+    background-color: $k1;
+  }
+
+  mat-card-content, mat-card-title{
+    color: $k2;
+  }
+
+  .mat-mdc-card:hover{
+    background-color: $k2;
+    border: #ffffff;
+
+    mat-card-content, mat-card-title{
+      color: white;
+    }
+    
+  }
+
+  .mdc-radio__outer-circle, .mdc-radio__inner-circle{
+    border-color: $k1;
+  }
+
+  .mdc-button__label, .mdc-tab__text-label{
+    color: $k2;
+  }
+
+  .mat-mdc-unelevated-button:not(:disabled){
+    background-color: $k1;
+  }
+}
+
+.piros, .piros aside{
+  background-color: $p2;
+
+  .piros a
+  {
+    background-color: $p1;
+  }
+
+  mat-card-content, mat-card-title{
+    color: $p2;
+  }
+
+  .mat-mdc-card:hover{
+    background-color: $p2;
+    border: #ffffff;
+
+    mat-card-content, mat-card-title{
+      color: white;
+    }
+    
+  }
+
+  .mdc-radio__outer-circle, .mdc-radio__inner-circle{
+    border-color: $p1;
+  }
+
+  .mdc-button__label, .mdc-tab__text-label{
+    color: $p2;
+  }
+
+  .mat-mdc-unelevated-button:not(:disabled){
+    background-color: $p1;
+  }
+}
+
+.zold, .zold aside{
+  background-color: $z2;
+  
+
+  .zold a
+  {
+    background-color: $z1;
+  }
+
+  mat-card-content, mat-card-title{
+    color: $z2;
+    
+  }
+
+  .mat-mdc-card:hover{
+    background-color: $z2;
+
+    mat-card-content, mat-card-title{
+      color: white;
+    }
+  }
+
+  .mdc-radio__outer-circle, .mdc-radio__inner-circle{
+    border-color: $z1;
+  }
+
+  .mdc-button__label, .mdc-tab__text-label{
+    color: $z2;
+  }
+
+  .mat-mdc-unelevated-button:not(:disabled){
+    background-color: $z1;
+  }
+}
+
+
+

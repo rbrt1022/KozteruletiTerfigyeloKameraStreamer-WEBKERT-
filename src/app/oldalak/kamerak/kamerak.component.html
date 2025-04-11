@@ -1,0 +1,26 @@
+@if (!kattintva) {
+<main [ngClass]="aktualisTema">
+    <mat-form-field>
+      <mat-label>Település</mat-label>
+      <mat-select [(ngModel)]="jelenVaros" (selectionChange)="varosszuro($event.value)">
+        <mat-option value="mind">Mind</mat-option>
+        @for (elem of varosok; track elem) {
+          <mat-option [value]="elem">{{elem}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <section>
+      @for (kam of kamerak; track kam) {
+        @if (jelenVaros === "mind" || jelenVaros === kam.telepules){
+        <app-egykamera
+          [kamera]="kam"
+          (kivalasztva)="ezakamerakell($event)">
+        </app-egykamera>}
+      }
+    </section>
+</main>
+}
+
+@if (kattintva) {
+  <app-betolt-t></app-betolt-t>
+}

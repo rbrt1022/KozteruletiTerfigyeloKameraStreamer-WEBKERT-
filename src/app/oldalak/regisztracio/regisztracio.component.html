@@ -1,0 +1,32 @@
+<main [ngClass]="aktualisTema">
+  <h1>Regisztráció</h1>
+    <form (ngSubmit)="ujfioka()" [formGroup]="regisztracioUrlap">
+        <mat-form-field appearance="outline">
+          <mat-label>Felhasználónév</mat-label>
+          <input matInput type="email" formControlName="email">
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+            <mat-label>Felhasználónév</mat-label>
+            <input matInput type="text" formControlName="felhasznalonev">
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+          <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Jelszó</mat-label>
+          <input matInput type="password" formControlName="jelszo">
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+            <mat-label>Jelszó újra</mat-label>
+            <input matInput type="password" formControlName="jelszoUjra">
+            <mat-icon matSuffix>lock</mat-icon>
+          </mat-form-field>
+          <br>
+        <button mat-flat-button type="submit">Regisztrálj</button>        
+    </form><br>
+    <button mat-stroked-button (click)="bejelentkezeshez()">Van már fiókod? Jelentkezz be!</button>
+</main>
+
