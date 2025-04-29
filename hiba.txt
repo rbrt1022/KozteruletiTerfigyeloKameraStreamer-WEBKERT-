@@ -1,0 +1,73 @@
+npm
+ERR! code ERESOLVE
+npm
+ERR! ERESOLVE could not resolve
+npm
+ERR!
+npm
+ERR!
+While resolving: kozterulet@0.0.0
+npm
+ERR!
+Found: @angular/core@19.2.1
+npm ERR! node_modules/@angular/core
+npm ERR!
+peer @angular/core@"19.2.1" from @angular/animations@19.2.1
+npm ERR!   node_modules/@angular/animations
+npm ERR!     peerOptional @angular/animations@"19.2.1" from @angular/platform-browser@19.2.1
+npm ERR!     node_modules/@angular/platform-browser
+npm
+ERR!       peer @angular/platform-browser@"19.2.1" from @angular/forms@19.2.1
+npm ERR!       node_modules/@angular/forms
+npm
+ERR!         peer @angular/forms@"^19.0.0 || ^20.0.0" from @angular/material@19.2.6
+npm ERR!
+node_modules/@angular/material
+npm ERR!         1 more (the root project)
+npm
+ERR!       4 more (@angular/material, ...)
+npm ERR!
+@angular/animations@"^19.1.0" from the root project
+npm ERR!   peer @angular/core@"^19.0.0 || ^20.0.0" from @angular/cdk@19.2.6
+npm ERR!   node_modules/@angular/cdk
+npm
+ERR!     peer @angular/cdk@"19.2.6" from @angular/material@19.2.6
+npm ERR!
+node_modules/@angular/material
+npm ERR!       @angular/material@"^19.2.6" from the root project
+npm
+ERR!     @angular/cdk@"^19.2.6" from the root project
+npm ERR!
+8 more (@angular/common, @angular/compiler, @angular/forms, ...)
+npm ERR!
+npm ERR! Could not resolve dependency:
+npm
+ERR! @angular/fire@"19.1.0" from the root project
+npm ERR!
+npm ERR! Conflicting peer dependency: @angular/core@19.2.8
+npm
+ERR! node_modules/@angular/core
+npm ERR!
+peer @angular/core@"19.2.8" from @angular/platform-browser-dynamic@19.2.8
+npm ERR!   node_modules/@angular/platform-browser-dynamic
+npm ERR!     @angular/platform-browser-dynamic@"^19.1.0" from the root project
+npm
+ERR!     peer @angular/platform-browser-dynamic@"^19.0.0" from @angular/fire@19.1.0
+npm ERR!
+node_modules/@angular/fire
+npm ERR!       @angular/fire@"19.1.0" from the root project
+npm
+ERR! 
+npm ERR!
+Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR!
+npm ERR! 
+npm
+ERR! For a full report see:
+npm
+ERR! /home/csiki-robert/.npm/_logs/2025-04-29T06_43_33_803Z-eresolve-report.txt
+npm
+ERR! A complete log of this run can be found in:
+npm ERR!     /home/csiki-robert/.npm/_logs/2025-04-29T06_43_33_803Z-debug-0.log

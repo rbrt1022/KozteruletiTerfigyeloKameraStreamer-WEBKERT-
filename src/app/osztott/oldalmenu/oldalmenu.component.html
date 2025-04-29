@@ -6,13 +6,13 @@
               <span matListItemTitle>Kezdőlap</span>
             </a>
             <a mat-list-item routerLink="/leskelodes" routerLinkActive="active-list-item" (click)="closeMenu()">
-              <mat-icon matListItemIcon>assignment</mat-icon>
+              <mat-icon matListItemIcon>videocam</mat-icon>
               <span matListItemTitle>Leskelődj!</span>
             </a>
             @if(bejelentkezve){
-              <a mat-list-item routerLink="/ujkamera" routerLinkActive="active-list-item" (click)="closeMenu()">
-                <mat-icon matListItemIcon>done_all</mat-icon>
-                <span matListItemTitle>Kamera hozzáadása</span>
+              <a mat-list-item routerLink="/sajatkamera" outerLinkActive="active-list-item" (click)="closeMenu()">
+                <mat-icon matListItemIcon>settings</mat-icon>
+                <span matListItemTitle>Kameráid kezelése</span>
               </a>
             }
             @if(!bejelentkezve){
@@ -23,7 +23,7 @@
             }
             @if(bejelentkezve){
               <a mat-list-item routerLinkActive="active-list-item" (click)="kij()">
-                <mat-icon matListItemIcon>person</mat-icon>
+                <mat-icon matListItemIcon>frame_person</mat-icon>
                 <span matListItemTitle>Kijelentkezés</span>
               </a>  
             }

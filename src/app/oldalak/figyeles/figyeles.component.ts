@@ -48,15 +48,11 @@ export class FigyelesComponent implements OnInit {
     console.log("Legyen ez a téma: "+ legyentema)
 
     if (legyentema === 'light') {
-      this.aktualisTema = 'dark';
-    }
-    else {
       this.aktualisTema = 'light';
     }
-
-    this.temaService.tema$.subscribe(tema => {
-      this.aktualisTema = tema;
-    });
+    else {
+      this.aktualisTema = 'dark';
+    }
 
     console.log('Ez lett az aktuális téma: '+ this.aktualisTema)
   }

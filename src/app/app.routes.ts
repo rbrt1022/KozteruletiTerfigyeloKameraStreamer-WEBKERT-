@@ -1,10 +1,4 @@
 import { Routes } from '@angular/router';
-import { KezdooldalComponent } from './oldalak/kezdooldal/kezdooldal.component';
-import { HibaoldalComponent } from './oldalak/hibaoldal/hibaoldal.component';
-import { KamerakComponent } from './oldalak/kamerak/kamerak.component';
-import { BejelentkezesComponent } from './oldalak/bejelentkezes/bejelentkezes.component';
-import { RegisztracioComponent } from './oldalak/regisztracio/regisztracio.component';
-import { KamerahozzaadComponent } from './oldalak/kamerahozzaad/kamerahozzaad.component';
 
 
 export const routes: Routes = [
@@ -17,8 +11,8 @@ export const routes: Routes = [
         loadComponent: () => import('./oldalak/kamerak/kamerak.component').then(m => m.KamerakComponent)
     },
     {
-        path: 'ujkamera',
-        loadComponent: () => import('./oldalak/kamerahozzaad/kamerahozzaad.component').then(m => m.KamerahozzaadComponent)
+        path: 'sajatkamera',
+        loadComponent: () => import('./oldalak/kameraid/kameraid.component').then(m => m.KameraidComponent)
     },
     {
         path: 'bej',

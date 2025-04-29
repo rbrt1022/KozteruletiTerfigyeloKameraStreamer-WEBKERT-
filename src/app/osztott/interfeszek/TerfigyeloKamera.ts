@@ -3,4 +3,5 @@ export interface TerfigyeloKamera{
     telepules: string;
     hely: string;
     link: string;
+    feltolto: string;
 }

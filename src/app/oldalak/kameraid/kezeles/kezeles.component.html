@@ -1,0 +1,24 @@
+<h1>Kamerák kezelése</h1>
+<section id="sajatkamerak">
+@for (item of kamerak; track $index) {
+    @if (kamerak[$index].feltolto == "rob") {
+        <mat-card appearance="outlined">
+            <mat-card-content>
+                <p>{{kamerak[$index].hely | szovegTisztito}}</p>
+                <img src="kepek/ciganytelep.jpg" alt="Cigánytelep">
+            </mat-card-content>
+            <mat-card-header>
+                <mat-card-title>{{kamerak[$index].telepules | szovegTisztito}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-footer>
+                <button mat-fab aria-label="Törlés">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <button mat-fab aria-label="Szerkesztés">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </mat-card-footer>
+        </mat-card>
+    }
+}
+</section>
