@@ -11,6 +11,7 @@ import { Felhasznalo } from '../../osztott/interfeszek/Felhasznalo';
 import { CommonModule } from '@angular/common';
 import { TemaService } from '../../osztott/service/temak.service';
 import { FelhasznaloAzonositasService } from '../../osztott/service/felhasznalo-azonositas.service';
+import { BetoltTComponent } from "../../osztott/toltokepernyok/betolt-t/betolt-t.component";
 
 @Component({
   selector: 'app-regisztracio',
@@ -22,8 +23,9 @@ import { FelhasznaloAzonositasService } from '../../osztott/service/felhasznalo-
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     FormsModule,
-    CommonModule
-  ],
+    CommonModule,
+    BetoltTComponent
+],
   templateUrl: './regisztracio.component.html',
   styleUrl: './regisztracio.component.scss'
 })
@@ -38,6 +40,7 @@ export class RegisztracioComponent {
 
   aktualisTema: 'light' | 'dark' = 'dark';
   regHiba: string = '';
+  tolt: boolean = false;
 
   constructor(
     private router : Router,
@@ -47,6 +50,7 @@ export class RegisztracioComponent {
 
   ngOnInit(){
     this.temaKiszervezve();
+    this.tolt=false;
   }
 
   temaKiszervezve(): void {
@@ -71,12 +75,14 @@ export class RegisztracioComponent {
 
   ujfioka()
   {
+    this.tolt=true;
     const e = this.regisztracioUrlap.get('email');
     const j = this.regisztracioUrlap.get('jelszo');
     const jU = this.regisztracioUrlap.get('jelszoUjra');
 
     if (j?.value !== jU?.value) {
-      this.regHiba = "A jelszavak nem egyeznek meg."
+      this.regHiba = "A jelszavak nem egyeznek meg.";
+      this.tolt=false;
       return;
     }
 
@@ -95,6 +101,7 @@ export class RegisztracioComponent {
       console.error('Login error:', error);
       //this.isLoading = false;
       //this.showLoginForm = true;
+      this.tolt=false;
       
       switch(error.code) {
         default:

@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { TemaService } from '../../osztott/service/temak.service';
 import { FelhasznaloAzonositasService } from '../../osztott/service/felhasznalo-azonositas.service';
 import { Subscription } from 'rxjs';
+import { BetoltTComponent } from '../../osztott/toltokepernyok/betolt-t/betolt-t.component';
 
 
 @Component({
@@ -23,7 +24,8 @@ import { Subscription } from 'rxjs';
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    BetoltTComponent
   ],
   templateUrl: './bejelentkezes.component.html',
   styleUrl: './bejelentkezes.component.scss'
@@ -37,6 +39,7 @@ export class BejelentkezesComponent {
   bejelentkezve: boolean = false;
 
   bejHiba = "";
+  tolt: boolean = false;
 
   private fha?: Subscription
  
@@ -70,6 +73,7 @@ export class BejelentkezesComponent {
   }
 
   bejelentkezes(){
+    this.tolt=true;
     const e = this.email.value;
     const j = this.jelszo.value;
 
@@ -80,6 +84,7 @@ export class BejelentkezesComponent {
       window.location.href = "/kezdo";
     })
     .catch(error => {
+      this.tolt=false;
       console.error('Login error:', error);
       //this.isLoading = false;
       //this.showLoginForm = true;

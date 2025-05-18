@@ -1,4 +1,9 @@
-<main [ngClass]="aktualisTema">
+
+@if (tolt) {
+  <app-betolt-t></app-betolt-t>
+}
+@else {
+  <main [ngClass]="aktualisTema">
   <h1>Regisztráció</h1>
     <form (ngSubmit)="ujfioka()" [formGroup]="regisztracioUrlap">
         <mat-form-field appearance="outline">
@@ -24,4 +29,5 @@
     </form><br>
     <button mat-stroked-button (click)="bejelentkezeshez()">Van már fiókod? Jelentkezz be!</button>
 </main>
+}
 

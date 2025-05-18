@@ -1,3 +1,7 @@
+@if (tolt) {
+  <app-betolt-t></app-betolt-t>
+}
+@else {
 <main id="bej" [ngClass]="aktualisTema">
     <form (ngSubmit)="bejelentkezes()">
         <mat-form-field appearance="outline">
@@ -18,5 +22,5 @@
         
     </form><br>
     <button mat-stroked-button (click)="regisztraljaCsorro()">Nincs még fiókod? Regisztrálj!</button>
-</main>
+</main>}
 
