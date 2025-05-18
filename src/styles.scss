@@ -64,6 +64,21 @@ html {
       active-focus-label-text-color: red
     ));
   }
+
+  .dark{
+    @include mat.radio-overrides((
+      label-text-color: white
+  ));
+    @include mat.form-field-overrides((
+      filled-label-text-color: white,
+      filled-input-text-placeholder-color: white,
+      filled-hover-active-indicator-color: white,
+      filled-focus-label-text-color: white,
+      outlined-label-text-color: white,
+      outlined-input-text-placeholder-color: white,
+      outlined-input-text-color: white
+    ))
+  }
 }
 
 
@@ -93,6 +108,7 @@ main{min-height: 100vh;text-align: center; padding-top: 20px;}
 .dark {
   background-color: #121212;
   color: #ffffff;
+  
 }
 
 
