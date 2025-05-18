@@ -1,3 +1,4 @@
+@if(nokatt){
 <h1>Kamera hozzáadása</h1>
 <form (ngSubmit)="ujKameraLathataron()">
     <mat-form-field appearance="outline">
@@ -22,3 +23,7 @@
     <button mat-flat-button type="submit">Lődd fel a kamerát, hadd lássuk!</button>
     
 </form>
+}
+@if (!nokatt) {
+  <app-betolt-t></app-betolt-t>
+}

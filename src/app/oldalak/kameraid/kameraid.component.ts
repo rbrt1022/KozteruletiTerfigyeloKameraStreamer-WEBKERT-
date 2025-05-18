@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { BetoltTComponent } from '../../osztott/toltokepernyok/betolt-t/betolt-t.component';
 
 
 @Component({
@@ -31,7 +32,8 @@ import { FormsModule } from '@angular/forms';
   MatIconModule,
   MatProgressSpinnerModule,
   ReactiveFormsModule,
-  FormsModule
+  FormsModule,
+  BetoltTComponent
   ],
   templateUrl: './kameraid.component.html',
   styleUrl: './kameraid.component.scss'
@@ -47,6 +49,8 @@ export class KameraidComponent {
   ujlink = new FormControl('');
   kamid = new FormControl('');
   uid = new FormControl('');
+
+  tolt: boolean = false;
   
     constructor(
       private router : Router,
@@ -78,6 +82,7 @@ export class KameraidComponent {
     }
 
     kameralekeres(): void {
+      this.tolt = true;
       this.tk.sajatkleker().subscribe(kamerak => {
         this.kamerak = kamerak;
         kamerak.forEach(k => {
@@ -88,6 +93,7 @@ export class KameraidComponent {
         }
         });
       });
+      this.tolt = false
     }
 
     kameraTorlesKezelese(kameraId: string): void {
@@ -106,13 +112,17 @@ export class KameraidComponent {
     }
 
     kameraModosit(kameraId: string|null): void{
+      this.tolt = true;
       this.kamera = {
         telepules: this.telepules.value + "",
         hely: this.helyszin.value + "",
         link: this.ujlink.value + ""
       }
       console.log(this.kamera)
-      this.tk.szerkesztKamera(this.kamid.value+"", this.kamera).then(a => this.szrkmode = false);
+      this.tk.szerkesztKamera(this.kamid.value+"", this.kamera).then(a => {
+        this.szrkmode = false;
+        this.tolt = false;  
+      });
     }
 
     ngOnDestroy(){

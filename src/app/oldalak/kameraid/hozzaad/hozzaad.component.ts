@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 //import { TerfigyeloKamera } from '../../../osztott/interfeszek/TerfigyeloKamera';
 import { Auth } from '@angular/fire/auth';
 import { TerigyeloKameraService } from '../../../osztott/service/terfigyelo-kamera.service';
+import { BetoltTComponent } from "../../../osztott/toltokepernyok/betolt-t/betolt-t.component";
 
 
 @Component({
@@ -20,8 +21,9 @@ import { TerigyeloKameraService } from '../../../osztott/service/terfigyelo-kame
     MatIconModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    FormsModule
-  ],
+    FormsModule,
+    BetoltTComponent
+],
   standalone: true,
   templateUrl: './hozzaad.component.html',
   styleUrl: './hozzaad.component.scss'
@@ -29,6 +31,8 @@ import { TerigyeloKameraService } from '../../../osztott/service/terfigyelo-kame
 export class HozzaadComponent {
   //@Output() kameraFeltoltve = new EventEmitter<TerfigyeloKamera>();
   kamvissz: String = "";
+
+  nokatt: boolean = true;
 
   constructor(
     private kameraService: TerigyeloKameraService,
@@ -40,11 +44,16 @@ export class HozzaadComponent {
   link = new FormControl('');
 
   ujKameraLathataron(): void {
-    if (this.telepules.invalid || this.helyszin.invalid || this.link.invalid) return;
+    this.nokatt = false;
+    if (this.telepules.invalid || this.helyszin.invalid || this.link.invalid) {
+      this.nokatt = true;
+      return;
+    }
 
     if (!this.auth.currentUser)
     {
       console.error("Nincs bejelentkezve felhasználó.");
+      this.nokatt = true;
       return;
     }
     else{
@@ -65,10 +74,12 @@ export class HozzaadComponent {
         this.helyszin.reset();
         this.link.reset();
         this.kamvissz = "Sikeres a feltöltés.";
+        this.nokatt = true;
       })
       .catch(err => {
         this.kamvissz = "Hiba történt, kamera nincs fent.";
         console.error('Nem sikerült elmenteni a kamerát:', err);
+        this.nokatt = true;
       });
   }
 

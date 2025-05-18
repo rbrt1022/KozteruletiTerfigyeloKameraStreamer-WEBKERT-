@@ -1,3 +1,4 @@
+@if (!tolt) {
 @if(!szrkmode){
     <main [ngClass]="aktualisTema">
     <mat-tab-group>
@@ -37,4 +38,7 @@
     <button mat-flat-button type="submit">Szerkeszd!</button>
 </form>
 </main>
+}}
+@if (tolt) {
+  <app-betolt-t></app-betolt-t>
 }
