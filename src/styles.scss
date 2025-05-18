@@ -23,6 +23,10 @@ html {
     inactive-focus-label-text-color: green,
     active-focus-label-text-color: green
   ));
+
+  @include mat.progress-spinner-overrides((
+      active-indicator-color: green
+    ))
   }
 
   .kek{
@@ -43,6 +47,10 @@ html {
       inactive-focus-label-text-color: blue,
       active-focus-label-text-color: blue
     ));
+
+    @include mat.progress-spinner-overrides((
+      active-indicator-color: blue
+    ))
   }
 
   .piros{
@@ -63,6 +71,10 @@ html {
       inactive-focus-label-text-color: red,
       active-focus-label-text-color: red
     ));
+
+    @include mat.progress-spinner-overrides((
+      active-indicator-color: red
+    ))
   }
 
   .dark{
