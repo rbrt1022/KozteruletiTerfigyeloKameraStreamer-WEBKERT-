@@ -14,28 +14,55 @@ html {
     typography: Roboto,
     density: 0,
   ));
+
+  @include mat.tabs-overrides((
+    active-label-text-color: green,
+    inactive-label-text-color: green,
+    active-hover-label-text-color: green,
+    inactive-hover-label-text-color: green,
+    inactive-focus-label-text-color: green,
+    active-focus-label-text-color: green
+  ));
   }
 
   .kek{
     @include mat.theme((
-    color: (
-      primary: mat.$blue-palette,
-      tertiary: mat.$green-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
+      color: (
+        primary: mat.$blue-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
+
+    @include mat.tabs-overrides((
+      active-label-text-color: blue,
+      inactive-label-text-color: blue,
+      active-hover-label-text-color: blue,
+      inactive-hover-label-text-color: blue,
+      inactive-focus-label-text-color: blue,
+      active-focus-label-text-color: blue
+    ));
   }
 
   .piros{
     @include mat.theme((
-    color: (
-      primary: mat.$red-palette,
-      tertiary: mat.$green-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
+      color: (
+        primary: mat.$red-palette,
+        tertiary: mat.$green-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
+
+    @include mat.tabs-overrides((
+      active-label-text-color: red,
+      inactive-label-text-color: red,
+      active-hover-label-text-color: red,
+      inactive-hover-label-text-color: red,
+      inactive-focus-label-text-color: red,
+      active-focus-label-text-color: red
+    ));
   }
 }
 
@@ -82,7 +109,7 @@ main{min-height: 100vh;text-align: center; padding-top: 20px;}
     color: $k2;
   }
 
-  .mat-mdc-card:hover{
+  .mat-mdc-card:hover.ossz{
     background-color: $k2;
     border: #ffffff;
 
@@ -117,7 +144,7 @@ main{min-height: 100vh;text-align: center; padding-top: 20px;}
     color: $p2;
   }
 
-  .mat-mdc-card:hover{
+  .mat-mdc-card:hover.ossz{
     background-color: $p2;
     border: #ffffff;
 
@@ -154,7 +181,7 @@ main{min-height: 100vh;text-align: center; padding-top: 20px;}
     
   }
 
-  .mat-mdc-card:hover{
+  .mat-mdc-card:hover.ossz{
     background-color: $z2;
 
     mat-card-content, mat-card-title{

@@ -9,6 +9,8 @@ import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TemaService } from '../../osztott/service/temak.service';
+import { FelhasznaloAzonositasService } from '../../osztott/service/felhasznalo-azonositas.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -30,11 +32,19 @@ import { TemaService } from '../../osztott/service/temak.service';
 export class BejelentkezesComponent {
   aktualisTema: 'light' | 'dark' = 'dark';
 
-  felhasznalonev = new FormControl('');
+  email = new FormControl('');
   jelszo = new FormControl('');
   bejelentkezve: boolean = false;
+
+  bejHiba = "";
+
+  private fha?: Subscription
  
-   constructor(private router : Router, private temaService: TemaService){};
+   constructor(
+    private router : Router,
+    private temaService: TemaService,
+    private fh: FelhasznaloAzonositasService,
+  ){};
  
    ngOnInit(){
      this.temaKiszervezve();
@@ -60,16 +70,30 @@ export class BejelentkezesComponent {
   }
 
   bejelentkezes(){
+    const e = this.email.value;
+    const j = this.jelszo.value;
 
-    if (this.felhasznalonev.value === 'rob' && this.jelszo.value === 'valami') {
-      localStorage.setItem("bejelentkezve","true");
-    }
-    //window.location.href = "/kezdo";
-    //this.router.navigateByUrl("/kezdo");
-
-    setTimeout(() => {
-      //this.router.navigateByUrl("/kezdo");
+    this.fh.bejelentkez(String(e),String(j))
+    .then(userCredential => {
+      this.fh.frissitBejelentkezesiStatus(true);
+      //this.router.navigateByUrl('/kezdo');
       window.location.href = "/kezdo";
-    },3000)
+    })
+    .catch(error => {
+      console.error('Login error:', error);
+      //this.isLoading = false;
+      //this.showLoginForm = true;
+      
+      switch(error.code) {
+        default:
+          this.bejHiba = 'Nem sikerült a bejelentkezés.';
+      }
+    });
   }
+
+  ngOnDestroy() {
+    this.email.reset();
+    this.jelszo.reset();
+  }
+  
 }

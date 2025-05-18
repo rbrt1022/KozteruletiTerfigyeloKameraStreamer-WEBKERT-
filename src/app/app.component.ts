@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { RouterLink } from '@angular/router';
 import { ColorService } from './osztott/service/szinek.service';
 import { CommonModule } from '@angular/common';
+import { FelhasznaloAzonositasService } from './osztott/service/felhasznalo-azonositas.service';
 
 @Component({
   selector: 'app-root',
@@ -35,11 +36,15 @@ export class AppComponent {
 
   aktualisSzin: 'kek' | 'zold' | 'piros' = 'kek';
 
-  constructor(private colorService: ColorService) {}
+  constructor(
+    private colorService: ColorService,
+    private fh: FelhasznaloAzonositasService
+  ) {}
 
   ngOnInit(): void {
     this.bevanejelentkezve();
     this.szinezesKiszervezve();
+    console.log(this.fh.kiVagyTe());
   }
 
   szinezesKiszervezve(): void {
@@ -70,10 +75,11 @@ export class AppComponent {
 
   kij(){
     this.kijfolyamatban = true;
-    localStorage.setItem('bejelentkezve','false');
+    this.fh.kijelentkez();
+    /*localStorage.setItem('bejelentkezve','false');
 
     setTimeout(() => {
       window.location.href = "/kezdo";
-    },3000)
+    },3000)*/
   }
 }

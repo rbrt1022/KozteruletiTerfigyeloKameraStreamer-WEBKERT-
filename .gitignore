@@ -43,3 +43,9 @@ Thumbs.db
 
 # Terfigyelo
 README.md
+passToken.txt
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
