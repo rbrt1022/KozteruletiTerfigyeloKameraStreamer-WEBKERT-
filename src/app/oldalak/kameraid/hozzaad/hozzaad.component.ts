@@ -28,6 +28,7 @@ import { TerigyeloKameraService } from '../../../osztott/service/terfigyelo-kame
 })
 export class HozzaadComponent {
   //@Output() kameraFeltoltve = new EventEmitter<TerfigyeloKamera>();
+  kamvissz: String = "";
 
   constructor(
     private kameraService: TerigyeloKameraService,
@@ -60,12 +61,13 @@ export class HozzaadComponent {
 
     this.kameraService.ujKamera(kamera)
       .then(() => {
-        //this.kameraFeltoltve.emit(kamera);  // 🔔 értesítjük a szülőt
         this.telepules.reset();
         this.helyszin.reset();
         this.link.reset();
+        this.kamvissz = "Sikeres a feltöltés.";
       })
       .catch(err => {
+        this.kamvissz = "Hiba történt, kamera nincs fent.";
         console.error('Nem sikerült elmenteni a kamerát:', err);
       });
   }
