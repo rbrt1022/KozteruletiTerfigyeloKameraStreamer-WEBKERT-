@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { OnInit } from '@angular/core';
 import { HibaoldalComponent } from '../hibaoldal/hibaoldal.component';
 import { ColorService } from '../../osztott/service/szinek.service';
 import { TemaService } from '../../osztott/service/temak.service';
 import { CommonModule } from '@angular/common';
+import { YtlinkPipe } from '../../osztott/pipeok/ytlink/ytlink.pipe';
 
 @Component({
   selector: 'app-figyeles',
   imports: [
     HibaoldalComponent,
-    CommonModule
+    CommonModule,
+    YtlinkPipe
   ],
   templateUrl: './figyeles.component.html',
   styleUrl: './figyeles.component.scss'
@@ -24,16 +25,23 @@ export class FigyelesComponent implements OnInit {
   aktualisTema: 'light' | 'dark' = 'light';
   aktualisSzin: 'kek' | 'zold' | 'piros' = 'kek';
   
-  kameraForras: SafeResourceUrl = '';
+  kameraForras: string= "";
 
-  constructor(private sanitizer: DomSanitizer,
+  constructor(
     private colorService: ColorService,
     private temaService: TemaService) {}
 
   ngOnInit(): void {
-    const storedValue = localStorage.getItem('kameralink');
-    if (storedValue) {
+    //Ezentúl a biztonságosságot a pipe adja
+    //const storedValue = localStorage.getItem('kameralink');
+    /*if (storedValue) {
       this.kameraForras = this.sanitizer.bypassSecurityTrustResourceUrl(storedValue);
+      this.kVan = true;
+    } else {
+      this.kVan = false;
+    }*/
+    this.kameraForras = localStorage.getItem('kameralink')+"";
+    if (this.kameraForras) {
       this.kVan = true;
     } else {
       this.kVan = false;

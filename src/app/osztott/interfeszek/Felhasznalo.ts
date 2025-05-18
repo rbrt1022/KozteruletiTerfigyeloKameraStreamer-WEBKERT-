@@ -1,5 +1,4 @@
 export interface Felhasznalo {
-    fhnev: string;
+    id: string;
     email: string;
-    jelszo: string;
 }

@@ -5,6 +5,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ColorService } from '../service/szinek.service'; 
 import { CommonModule } from '@angular/common';
+import { FelhasznaloAzonositasService } from '../service/felhasznalo-azonositas.service';
 
 @Component({
   selector: 'app-oldalmenu',
@@ -24,7 +25,10 @@ export class OldalmenuComponent {
 
   aktualisSzin: 'kek' | 'zold' | 'piros' = 'kek';
 
-  constructor(private colorService: ColorService) {}
+  constructor(
+    private colorService: ColorService,
+    private fh: FelhasznaloAzonositasService
+  ) {}
 
   bejelentkezve = false;
 
@@ -37,14 +41,15 @@ export class OldalmenuComponent {
   }
 
   kij(){
-    localStorage.setItem('bejelentkezve','false');
+    //localStorage.setItem('bejelentkezve','false');
 
     this.closeMenu();
+    this.fh.kijelentkez();
 
-    setTimeout(() => {
+    /*setTimeout(() => {
       //this.router.navigateByUrl("/kezdo");
       window.location.href = "/kezdo";
-    },3000)
+    },3000)*/
   }
 
   closeMenu() {

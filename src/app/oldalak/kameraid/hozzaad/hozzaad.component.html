@@ -2,19 +2,19 @@
 <form (ngSubmit)="ujKameraLathataron()">
     <mat-form-field appearance="outline">
       <mat-label>Település</mat-label>
-      <input matInput type="text" [formControl]="telepules">
+      <input matInput type="text" [formControl]="telepules" required>
       <mat-icon matSuffix>building</mat-icon>
     </mat-form-field>
     <br>
     <mat-form-field appearance="outline">
       <mat-label>Helyszín</mat-label>
-      <input matInput type="text" [formControl]="helyszin">
+      <input matInput type="text" [formControl]="helyszin" required>
       <mat-icon matSuffix>building</mat-icon>
     </mat-form-field>
     <br>
     <mat-form-field appearance="outline">
         <mat-label>URL/link</mat-label>
-        <input matInput type="text" [formControl]="link">
+        <input matInput type="text" [formControl]="link" required>
         <mat-icon matSuffix>building</mat-icon>
       </mat-form-field>
     <br>

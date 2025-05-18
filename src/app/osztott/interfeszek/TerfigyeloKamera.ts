@@ -1,5 +1,5 @@
 export interface TerfigyeloKamera{
-    id: number;
+    id: string;
     telepules: string;
     hely: string;
     link: string;

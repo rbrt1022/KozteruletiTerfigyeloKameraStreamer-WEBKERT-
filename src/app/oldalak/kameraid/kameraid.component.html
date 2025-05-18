@@ -1,11 +1,40 @@
-<main [ngClass]="aktualisTema">
-    <h1>Oldal személyre szabása</h1>
+@if(!szrkmode){
+    <main [ngClass]="aktualisTema">
     <mat-tab-group>
         <mat-tab label="Kameráid kezelése">
-            <app-kezeles></app-kezeles>
+            <app-kezeles [kamerak]="kamerak" (kameraTorlese)="kameraTorlesKezelese($event)"
+            (kameraSzerkeszt)="kameraSzerkKezelese($event)"></app-kezeles>
         </mat-tab>
         <mat-tab label="Új hozzáadása">
             <app-hozzaad></app-hozzaad>
         </mat-tab>
     </mat-tab-group>
 </main>
+}
+@if (szrkmode){
+<main [ngClass]="aktualisTema">
+    <form (ngSubmit)="kameraModosit(kamid.value)">
+    <mat-form-field appearance="outline">
+      <mat-label>Település</mat-label>
+      <input matInput type="text" [formControl]="telepules" required>
+      <mat-icon matSuffix>building</mat-icon>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Helyszín</mat-label>
+      <input matInput type="text" [formControl]="helyszin" required>
+      <mat-icon matSuffix>building</mat-icon>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label>URL/link</mat-label>
+        <input matInput type="text" [formControl]="ujlink" required>
+        <mat-icon matSuffix>building</mat-icon>
+      </mat-form-field>
+      <br>
+      <input matInput type="text" [formControl]="kamid" hidden>
+    <br>
+    <button mat-flat-button type="submit">Szerkeszd!</button>
+</form>
+</main>
+}

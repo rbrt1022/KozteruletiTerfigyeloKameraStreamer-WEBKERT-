@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard, publicGuard } from './osztott/orzo/fhbelepve.guard';
 
 
 export const routes: Routes = [
@@ -12,15 +13,18 @@ export const routes: Routes = [
     },
     {
         path: 'sajatkamera',
-        loadComponent: () => import('./oldalak/kameraid/kameraid.component').then(m => m.KameraidComponent)
+        loadComponent: () => import('./oldalak/kameraid/kameraid.component').then(m => m.KameraidComponent),
+        canActivate:[authGuard]
     },
     {
         path: 'bej',
-        loadComponent: () => import('./oldalak/bejelentkezes/bejelentkezes.component').then(m => m.BejelentkezesComponent)
+        loadComponent: () => import('./oldalak/bejelentkezes/bejelentkezes.component').then(m => m.BejelentkezesComponent),
+        canActivate:[publicGuard]
     },
     {
         path: 'reg',
-        loadComponent: () => import('./oldalak/regisztracio/regisztracio.component').then(m => m.RegisztracioComponent)
+        loadComponent: () => import('./oldalak/regisztracio/regisztracio.component').then(m => m.RegisztracioComponent),
+        canActivate:[publicGuard]
     },
     {
         path: 'figyeles',
